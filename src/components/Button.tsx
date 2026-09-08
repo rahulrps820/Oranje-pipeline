@@ -49,15 +49,25 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Renders a spinner and blocks interaction while an action is in flight. */
   loading?: boolean;
+  ref?: React.Ref<HTMLButtonElement>;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { className, variant = "primary", size = "md", block = false, loading = false, disabled, children, ...props },
-  ref,
-) {
+/**
+ * No `forwardRef`: since React 19 a function component receives `ref` as an ordinary prop, so
+ * wrapping adds a layer that buys nothing.
+ */
+function Button({
+  className,
+  variant = "primary",
+  size = "md",
+  block = false,
+  loading = false,
+  disabled,
+  children,
+  ...props
+}: ButtonProps) {
   return (
     <button
-      ref={ref}
       type="button"
       data-slot="button"
       // `loading` disables too: a button that looks busy but still fires is the bug this avoids.
@@ -75,6 +85,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       {children}
     </button>
   );
-});
+}
 
-export { buttonVariants };
+export { Button, buttonVariants };

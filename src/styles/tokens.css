@@ -1,0 +1,44 @@
+/**
+ * Design tokens — the single source of truth for color in this system.
+ *
+ * Components reference these by name (`var(--color-primary)`) and never inline a literal, so a
+ * palette change lands in one file rather than across every component.
+ */
+
+:root {
+  /* Brand */
+  --color-primary: #E2611A;
+  --color-primary-hover: #C4520F;
+  --color-primary-foreground: #FFFFFF;
+
+  /* Surfaces */
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #F5F3F0;
+  --color-surface-sunken: #EAE6E1;
+
+  /* Content */
+  --color-content: #1A1714;
+  --color-content-muted: #6B6259;
+
+  /* Lines and focus */
+  --color-border: #DCD6CF;
+  --color-focus-ring: #E2611A;
+
+  /* Status */
+  --color-danger: #B3261E;
+  --color-danger-hover: #8C1D17;
+  --color-danger-foreground: #FFFFFF;
+  --color-success: #1E7A4C;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+}

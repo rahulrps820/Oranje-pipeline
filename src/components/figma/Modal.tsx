@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 type Size = 'Small' | 'Medium' | 'Large' | 'xx-Large';
 
-interface ModalProps {
+export interface ModalProps {
   open: boolean;
   onClose: () => void;
   size?: Size;

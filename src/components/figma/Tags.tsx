@@ -1,7 +1,7 @@
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 import React from 'react';
 
-interface TagsProps {
+export interface TagsProps {
   /** Size of the tag */
   size: 'Medium' | 'Small';
   /** Interaction state */
@@ -66,6 +66,10 @@ export default function Tags({
     {
       // Default: no extra
       Default: '',
+      // Disabled: the base classes already apply `pointer-events-none opacity-50`, so there is no
+      // extra state styling — but the entry must EXIST. `state` has five values and this map had
+      // four, so indexing it with 'Disabled' spliced `undefined` into the className.
+      Disabled: '',
       // Hover: increase background intensity slightly
       Hover: 'hover:bg-muted/80 hover:bg-foreground/90',
       // Focussed: already covered by focus-visible ring; subtle bg change

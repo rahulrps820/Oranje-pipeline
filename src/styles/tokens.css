@@ -1,8 +1,9 @@
 /**
- * Design tokens — the single source of truth for color in this system.
+ * Design tokens — the single source of truth for color and type in this system.
  *
- * Components reference these by name (`var(--color-primary)`) and never inline a literal, so a
- * palette change lands in one file rather than across every component.
+ * Components reference these by name (`var(--color-primary)`, `var(--text-body-2-size)`) and never
+ * inline a literal, so a palette or type change lands in one file rather than across every
+ * component.
  */
 
 :root {
@@ -41,4 +42,72 @@
   --space-3: 12px;
   --space-4: 16px;
   --space-6: 24px;
+
+  /* ── Typography ────────────────────────────────────────────────────────────────────────────
+   *
+   * Mirrored from the Figma library's type system so a component generated from a Figma
+   * component lands on the same values the design states, rather than on a framework default.
+   * Before this existed there was nothing in code to align TO: generated components fell back to
+   * Tailwind's `text-base` / `text-sm`, which are 16px/14px and match nothing in the design.
+   *
+   * ONLY WHAT FIGMA ACTUALLY STATES IS HERE. The variables below were read off a real component's
+   * bound variables, so the scale is PARTIAL — Figma defines more steps than one component uses,
+   * and inventing the missing ones (a "Heading 1" nobody has evidenced) would put fabricated
+   * numbers in the file that everything else in this pipeline exists to keep out. Add a step when
+   * a component that uses it is read, not before.
+   */
+
+  /* Families. Figma names them by ROLE, not by typeface, so the indirection is kept: a rebrand
+   * swapping Rubik for something else changes one line here and nothing in any component. */
+  --font-body: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Weights. Figma spells these as names ("Regular", "Medium"); CSS needs the numbers. */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Size steps, keeping Figma's own names so a designer and an engineer say the same word.
+   * px, not rem: Figma states them in px and converting here would make the two disagree. */
+  --font-size-heading-4: 14px;
+  --font-size-heading-5: 12px;
+
+  /* Line heights, likewise Figma's names. Unitless would be wrong — these are absolute in Figma. */
+  --line-height-heading-3: 20px;
+  --line-height-heading-5: 16px;
+
+  /* Composite text styles — the unit a designer actually applies. A component should reach for
+   * one of these rather than assembling family+size+weight itself, which is how two components
+   * end up "nearly" the same. */
+  --text-body-2-family: var(--font-body);
+  --text-body-2-size: var(--font-size-heading-4);
+  --text-body-2-weight: var(--font-weight-regular);
+  --text-body-2-line-height: var(--line-height-heading-3);
+  --text-body-2-letter-spacing: 0;
+
+  --text-heading-5-family: var(--font-heading);
+  --text-heading-5-size: var(--font-size-heading-5);
+  --text-heading-5-weight: var(--font-weight-medium);
+  --text-heading-5-line-height: var(--line-height-heading-5);
+  --text-heading-5-letter-spacing: 0;
+}
+
+/**
+ * The composite styles as classes, because `font` cannot be composed from custom properties in a
+ * single shorthand and repeating five declarations per component is exactly the duplication these
+ * tokens exist to remove. A component applies `.text-body-2`, not five `var()` calls.
+ */
+.text-body-2 {
+  font-family: var(--text-body-2-family);
+  font-size: var(--text-body-2-size);
+  font-weight: var(--text-body-2-weight);
+  line-height: var(--text-body-2-line-height);
+  letter-spacing: var(--text-body-2-letter-spacing);
+}
+
+.text-heading-5 {
+  font-family: var(--text-heading-5-family);
+  font-size: var(--text-heading-5-size);
+  font-weight: var(--text-heading-5-weight);
+  line-height: var(--text-heading-5-line-height);
+  letter-spacing: var(--text-heading-5-letter-spacing);
 }

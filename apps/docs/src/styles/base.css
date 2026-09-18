@@ -1,0 +1,11 @@
+/* Base and Global Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--color-content);
+  background: var(--color-surface);
+}

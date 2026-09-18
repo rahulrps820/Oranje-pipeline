@@ -1,0 +1,11 @@
+/* The library's own tokens are the source of truth for this site too — the docs must not restate a
+ * colour the design system already names, or the page and the components can drift apart. */
+@import "../../../src/styles/tokens.css";
+@import "./App.css";
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

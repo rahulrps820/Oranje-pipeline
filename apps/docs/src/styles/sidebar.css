@@ -1,0 +1,121 @@
+/* Sidebar Navigation — the component index. */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--color-surface-raised);
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.sidebar-header h2 a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-header .sidebar-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--color-content-muted);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: var(--color-content);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+  background: var(--color-surface-sunken);
+  color: var(--color-primary);
+}
+
+.sidebar a.active {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-left-color: var(--color-primary);
+  font-weight: 500;
+}
+
+.sidebar a:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: -2px;
+}
+
+.sidebar-section-item {
+  margin: 0;
+}
+
+.sidebar-section {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-content-muted);
+}
+
+/* The count is the point of the demo: it is what stays the same across a generation run until a
+ * component is genuinely added, and what changes the moment one is. */
+.sidebar-section-count {
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.sidebar-nested-item a {
+  padding-left: 2.5rem;
+}
+
+/* Marks a component that arrived through an RPS pull request rather than being hand-written. */
+.sidebar-generated-flag {
+  margin-left: 0.5rem;
+  font-size: 0.6875rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-1);
+  vertical-align: middle;
+}
+
+.mobile-nav-toggle,
+.mobile-nav-close {
+  display: none;
+}

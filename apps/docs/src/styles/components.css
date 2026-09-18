@@ -1,0 +1,125 @@
+/* Documentation page furniture — the demo surface, prop tables and code blocks. */
+
+.demo-box {
+  padding: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.demo-box.column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 2rem;
+  font-size: 0.9375rem;
+}
+
+.props-table th,
+.props-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.props-table th {
+  font-weight: 600;
+  color: var(--color-content);
+  background: var(--color-surface-raised);
+}
+
+.props-table code {
+  font-size: 0.875em;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background: var(--color-content);
+  color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Home page */
+.home-hero {
+  padding: 2rem 0 1rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin: 2rem 0 3rem;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  background: var(--color-surface-raised);
+}
+
+.stat-card .stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-content-muted);
+  margin-top: var(--space-1);
+}
+
+.docs-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 1rem 0;
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.docs-header .repo-link {
+  font-size: 0.875rem;
+  color: var(--color-content-muted);
+  text-decoration: none;
+}
+
+.docs-header .repo-link:hover {
+  color: var(--color-primary);
+}

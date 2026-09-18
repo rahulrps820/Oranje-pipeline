@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+
+  "installCommand": "npm install && npm --prefix apps/docs install",
+
+  "buildCommand": "npm --prefix apps/docs run build",
+  "outputDirectory": "apps/docs/dist",
+
+  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
+}

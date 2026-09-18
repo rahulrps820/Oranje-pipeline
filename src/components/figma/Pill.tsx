@@ -1,6 +1,6 @@
 import React, { useState, useRef, KeyboardEvent } from 'react';
 
-interface PillProps {
+export interface PillProps {
   /** Content of the pill */
   children: React.ReactNode;
   /** Variant of the pill */

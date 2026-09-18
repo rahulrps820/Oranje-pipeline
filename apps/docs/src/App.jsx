@@ -12,6 +12,7 @@ import Overview from "./pages/Overview";
 import ButtonPage from "./pages/ButtonPage";
 import TagsPage from "./pages/TagsPage";
 import ModalPage from "./pages/ModalPage";
+import PillPage from "./pages/PillPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -56,6 +57,7 @@ function App() {
                 <Route path="/button" element={<ButtonPage />} />
                 <Route path="/tags" element={<TagsPage />} />
                 <Route path="/modal" element={<ModalPage />} />
+                <Route path="/pill" element={<PillPage />} />
                 <Route path="*" element={<NoRoute />} />
               </Routes>
             </main>

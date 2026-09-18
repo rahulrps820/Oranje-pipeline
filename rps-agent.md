@@ -14,7 +14,9 @@ one place those rules live, and it is reviewed like any other change to this rep
 
 ## Imports
 
-This project declares NO path aliases in tsconfig.json. Use RELATIVE imports (`../lib/utils`), never `@/…` — an aliased import will not resolve and the file will not compile.
+This project declares NO path aliases in tsconfig.json. Use RELATIVE imports, never `@/…` — an aliased import will not resolve and the file will not compile.
+
+From `src/components/figma`, that means: `../../lib/utils` for `src/lib/utils.ts`. Count the directories; a component in a nested folder needs one `../` per level.
 
 ## Dependencies
 
